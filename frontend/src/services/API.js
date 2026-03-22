@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const API = axios.create({
-    baseURL: 'crud-front-back-production.up.railway.app'
+    baseURL: 'https://crud-front-back-production.up.railway.app'
 })
     // export default API
  
