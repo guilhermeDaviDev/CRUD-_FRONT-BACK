@@ -3,4 +3,4 @@ builder = "nixpacks"
 buildCommand = "npm install && npx prisma generate"
 
 [deploy]
-startCommand = "node server.js"
+startCommand = "npx prisma generate && node server.js"
