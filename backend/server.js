@@ -5,7 +5,9 @@ import { PrismaClient } from "@prisma/client"
 
 const prisma = new PrismaClient()
 const app = express()
-app.use(cors())                   // ← adicione
+app.use(cors({
+   origin: 'https://crud-front-back-lnak.vercel.app'
+}))                   // ← adicione
 app.use(express.json())
 
 app.post('/users', async (req, res) => {
