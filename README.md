@@ -20,24 +20,49 @@ Aplicação fullstack de cadastro de usuários com operações completas de cria
 ## Stack
 
 **Frontend**
-- React 18 com Hooks (`useState`, `useEffect`, `useRef`)
-- Vite como bundler
-- Axios para comunicação com a API
-- CSS puro com variáveis e aninhamento nativo
+- React 19
+- Vite 8
+- Axios
 
 **Backend**
 - Node.js com ES Modules
 - Express 5
-- Prisma ORM para modelagem e acesso ao banco
-- MongoDB Atlas como banco de dados
-- CORS configurado para aceitar apenas a origem do frontend em produção
-- Variáveis de ambiente via dotenv
+- Prisma ORM 6.19
+- MongoDB Atlas
+- CORS
+- dotenv
 
-**Infraestrutura**
-- Frontend hospedado na Vercel
-- Backend hospedado no Railway
-- Banco de dados no MongoDB Atlas
-- CI/CD automático via GitHub (push na `main` dispara novo deploy)
+---
+
+## Dependências
+
+### Frontend
+
+| Pacote | Versão | Tipo |
+|--------|--------|------|
+| react | ^19.2.4 | produção |
+| react-dom | ^19.2.4 | produção |
+| axios | ^1.13.6 | produção |
+| vite | ^8.0.1 | desenvolvimento |
+| @vitejs/plugin-react | ^6.0.1 | desenvolvimento |
+| eslint | ^9.39.4 | desenvolvimento |
+| eslint-plugin-react-hooks | ^7.0.1 | desenvolvimento |
+| eslint-plugin-react-refresh | ^0.5.2 | desenvolvimento |
+| @eslint/js | ^9.39.4 | desenvolvimento |
+| @types/react | ^19.2.14 | desenvolvimento |
+| @types/react-dom | ^19.2.3 | desenvolvimento |
+| globals | ^17.4.0 | desenvolvimento |
+
+### Backend
+
+| Pacote | Versão | Tipo |
+|--------|--------|------|
+| express | ^5.2.1 | produção |
+| @prisma/client | 6.19 | produção |
+| prisma | 6.19 | produção |
+| cors | ^2.8.6 | produção |
+| @types/node | ^25.5.0 | desenvolvimento |
+| tsx | ^4.21.0 | desenvolvimento |
 
 ---
 
@@ -45,14 +70,14 @@ Aplicação fullstack de cadastro de usuários com operações completas de cria
 
 ```
 CRUD-_FRONT-BACK/
-├── frontend/        # Aplicação React
+├── frontend/
 │   ├── src/
 │   │   ├── pages/home/App.jsx
 │   │   ├── services/API.js
 │   │   └── assets/
 │   └── package.json
 │
-└── backend/         # API REST
+└── backend/
     ├── server.js
     ├── prisma/
     │   └── schema.prisma
@@ -141,7 +166,7 @@ model User {
 
 ## Deploy
 
-O pipeline de deploy é totalmente automatizado via GitHub Actions nativo do Vercel e Railway. Qualquer push na branch `main` dispara um novo build em ambos os serviços.
+O pipeline de deploy é totalmente automatizado. Qualquer push na branch `main` dispara um novo build em ambos os serviços.
 
 - **Frontend → Vercel**: root directory `frontend`, build com `vite build`
 - **Backend → Railway**: root directory `backend`, build com `prisma generate`, start com `node server.js`
@@ -149,8 +174,6 @@ O pipeline de deploy é totalmente automatizado via GitHub Actions nativo do Ver
 ---
 
 ## Aprendizados
-
-O projeto cobriu na prática os principais pontos do desenvolvimento fullstack:
 
 - Configuração de monorepo com frontend e backend no mesmo repositório
 - Comunicação entre serviços em domínios diferentes com CORS
